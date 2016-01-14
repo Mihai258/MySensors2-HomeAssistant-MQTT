@@ -1,0 +1,357 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # C for Celcius, F for Fahrenheit
+  temperature_unit: C
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Europe/Bucharest
+
+  latitude: 44.435509
+  longitude: 26.102528
+  
+# Enables support for tracking state changes over time.
+#history:
+
+# View all events in a logbook
+#logbook:
+
+# Enables the frontend
+frontend:
+
+# Show links to resources in log and frontend
+# introduction:
+
+# Track the sun
+sun:
+  elevation: 100
+
+# Allows you to issue voice commands from the frontend
+# conversation:
+
+mqtt:
+  broker: 127.0.0.1
+  port: 1883
+
+sensor 1:
+  platform: mqtt
+  state_topic: "P/0/1/1/0/24"
+  name: "Analog1"
+  unit_of_measurement: "UN"
+
+binary_sensor 1:
+  platform: mqtt
+  state_topic: "P/0/2/1/0/16"
+  name: "PIR1"
+  payload_on: "ON"
+  payload_off: "OFF"
+
+sensor 2:
+  platform: mqtt
+  state_topic: "P/0/3/1/0/24"
+  name: "Gas1"  
+
+sensor 3:
+  platform: mqtt
+  state_topic: "P/0/4/1/0/0"
+  name: "Temp3"
+  unit_of_measurement: "°C"
+
+switch 1:
+  platform: mqtt
+  state_topic: "P/0/5/1/0/2"
+  command_topic: "S/0/5/1/0/2"
+  name: "REL1"
+  payload_on: "ON"
+  payload_off: "OFF"
+
+switch 2:
+  platform: mqtt
+  state_topic: "P/0/6/1/0/2"
+  command_topic: "S/0/6/1/0/2"
+  name: "REL2"
+  payload_on: "ON"
+  payload_off: "OFF"
+
+sensor 4:
+  platform: mqtt
+  state_topic: "P/0/7/1/0/1"
+  name: "HUM4"
+  unit_of_measurement: "%"
+  
+sensor 5:
+  platform: mqtt
+  state_topic: "P/0/8/1/0/0"
+  name: "Temp5"
+  unit_of_measurement: "°C"   
+  
+
+switch 101:
+  platform: mqtt
+  state_topic: "P/10/1/1/0/2"
+  command_topic: "S/10/1/1/0/2"
+  name: "REL101"
+  payload_on: "ON"
+  payload_off: "OFF"
+
+switch 102:
+  platform: mqtt
+  state_topic: "P/10/2/1/0/2"
+  command_topic: "S/10/2/1/0/2"
+  name: "REL102"
+  payload_on: "ON"
+  payload_off: "OFF"
+
+switch 103:
+  platform: mqtt
+  state_topic: "P/10/3/1/0/2"
+  command_topic: "S/10/3/1/0/2"
+  name: "REL103"
+  payload_on: "ON"
+  payload_off: "OFF"
+
+switch 104:
+  platform: mqtt
+  state_topic: "P/10/4/1/0/2"
+  command_topic: "S/10/4/1/0/2"
+  name: "REL104"
+  payload_on: "ON"
+  payload_off: "OFF"
+
+sensor 105:
+  platform: mqtt
+  state_topic: "P/10/5/1/0/1"
+  name: "HUM_DHT105"
+  unit_of_measurement: "%"
+  
+sensor 106:
+  platform: mqtt
+  state_topic: "P/10/6/1/0/0"
+  name: "TempDHT106"
+  unit_of_measurement: "°C" 
+
+binary_sensor 111:
+  platform: mqtt
+  state_topic: "P/11/1/1/0/16"
+  name: "PIR111"
+  payload_on: "ON"
+  payload_off: "OFF"
+
+binary_sensor 112:
+  platform: mqtt
+  state_topic: "P/11/2/1/0/2"
+  name: "Binary112"
+  payload_on: "ON"
+  payload_off: "OFF"
+
+binary_sensor 113:
+  platform: mqtt
+  state_topic: "P/11/3/1/0/16"
+  name: "Water113"
+  payload_on: "ON"
+  payload_off: "OFF"
+
+sensor 114:
+  platform: mqtt
+  state_topic: "P/11/4/1/0/16"
+  name: "SND114"
+  payload_on: "ON"
+  payload_of: "OFF"
+  
+binary_sensor 115:
+  platform: mqtt
+  state_topic: "P/11/5/1/0/16"
+  name: "Vib115"
+  payload_on: "ON"
+  payload_off: "OFF"
+
+binary_sensor 121:
+  platform: mqtt
+  state_topic: "P/12/1/1/0/16"
+  name: "SW121"
+  payload_on: "ON"
+  payload_off: "OFF"
+  
+sensor 131:
+  platform: mqtt
+  state_topic: "P/13/1/1/0/0"
+  name: "Temp131"
+  unit_of_measurement: "°C"
+  
+sensor 132:
+  platform: mqtt
+  state_topic: "P/13/2/1/0/0"
+  name: "Temp132"
+  unit_of_measurement: "°C"
+  
+sensor 133:
+  platform: mqtt
+  state_topic: "P/13/3/1/0/0"
+  name: "Temp133"
+  unit_of_measurement: "°C"
+  
+sensor 141:
+  platform: mqtt
+  state_topic: "P/14/1/1/0/24"
+  name: "Analog141"
+  unit_of_measurement: "UN"
+  
+sensor 151:
+  platform: mqtt
+  state_topic: "P/15/1/1/0/0"
+  name: "HUM_DHT151"
+  unit_of_measurement: "%"
+  
+sensor 152:
+  platform: mqtt
+  state_topic: "P/15/2/1/0/0"
+  name: "TempDHT152"
+  unit_of_measurement: "°C"  
+  
+sensor 161:
+  platform: mqtt
+  state_topic: "P/16/1/1/0/24"
+  name: "Gas161"
+
+sensor 171:
+  platform: mqtt
+  state_topic: "P/17/1/1/0/13"
+  name: "Distance"
+  unit_of_measurement: "cm"   
+  
+sensor 181:
+  platform: mqtt
+  state_topic: "P/18/1/1/0/23"
+  name: "Light181"
+  unit_of_measurement: "Lux" 
+
+binary_sensor 191:
+  platform: mqtt
+  state_topic: "P/19/1/1/0/16"
+  name: "PIR191"
+  payload_on: "ON"
+  payload_off: "OFF"
+
+binary_sensor 192:
+  platform: mqtt
+  state_topic: "P/19/2/1/0/2"
+  name: "Binary192"
+  payload_on: "ON"
+  payload_of: "OFF"
+
+sensor 193:
+  platform: mqtt
+  state_topic: "P/19/3/1/0/24"
+  name: "Gas193"
+
+sensor 194:
+  platform: mqtt
+  state_topic: "P/19/4/1/0/16"
+  name: "SND194"
+  payload_on: "ON"
+  payload_off: "OFF"
+
+sensor 195:
+  platform: mqtt
+  state_topic: "P/19/5/1/0/16"
+  name: "Vibration195"
+  payload_on: "ON"
+  payload_off: "OFF"
+
+sensor 1910:
+  platform: mqtt
+  state_topic: "P/19/10/1/0/0"
+  name: "Temp1910"
+  unit_of_measurement: "°C"
+  
+sensor 1911:
+  platform: mqtt
+  state_topic: "P/19/11/1/0/0"
+  name: "Temp1911"
+  unit_of_measurement: "°C"
+  
+sensor 1912:
+  platform: mqtt
+  state_topic: "P/19/12/1/0/0"
+  name: "Temp1912"
+  unit_of_measurement: "°C"
+   
+switch 2001:
+  platform: mqtt
+  state_topic: "P/20/1/1/0/2"
+  command_topic: "S/20/1/1/0/2"
+  name: "REL201"
+  payload_on: "ON"
+  payload_off: "OFF"
+
+switch 2002:
+  platform: mqtt
+  state_topic: "P/20/2/1/0/2"
+  command_topic: "S/20/2/1/0/2"
+  name: "REL202"
+  payload_on: "ON"
+  payload_off: "OFF"
+
+switch 2003:
+  platform: mqtt
+  state_topic: "P/20/3/1/0/2"
+  command_topic: "S/20/3/1/0/2"
+  name: "REL203"
+  payload_on: "ON"
+  payload_off: "OFF"
+
+switch 2004:
+  platform: mqtt
+  state_topic: "P/20/4/1/0/2"
+  command_topic: "S/20/4/1/0/2"
+  name: "REL204"
+  payload_on: "ON"
+  payload_off: "OFF"
+
+binary_sensor 2011:
+  platform: mqtt
+  state_topic: "P/20/11/1/0/16"
+  name: "Water2011"
+  payload_on: "ON"
+  payload_off: "OFF"
+     
+binary_sensor 2012:
+  platform: mqtt
+  state_topic: "P/20/12/1/0/16"
+  name: "PIR2012"
+  payload_on: "ON"
+  payload_off: "OFF"      
+
+sensor 2013:
+  platform: mqtt
+  state_topic: "P/20/13/1/0/24"
+  name: "Gas2013"
+
+sensor 2021:
+  platform: mqtt
+  state_topic: "P/20/21/1/0/0"
+  name: "Temp2021"
+  unit_of_measurement: "°C"  
+
+sensor 2022:
+  platform: mqtt
+  state_topic: "P/20/22/1/0/0"
+  name: "Temp2022"
+  unit_of_measurement: "°C"
+
+sensor 2023:
+  platform: mqtt
+  state_topic: "P/20/23/1/0/0"
+  name: "Temp2023"
+  unit_of_measurement: "°C"  
+
+sensor 2031:
+  platform: mqtt
+  state_topic: "P/20/31/1/0/0"
+  name: "HUM_DHT2031"
+  unit_of_measurement: "%"
+  
+sensor 2032:
+  platform: mqtt
+  state_topic: "P/20/32/1/0/0"
+  name: "TempDHT2032"
+  unit_of_measurement: "°C"  
