@@ -172,8 +172,6 @@ void ServerUpdate() {
 
 void receive(const MyMessage &message) {
   // We only expect one type of message from controller. But we better check anyway.
-  Serial.print("Message type: "); Serial.println(message.type);
-  Serial.print("Message load: "); Serial.println(message.data);
   if (message.type==V_LIGHT) {
     StateREL=strcmp(message.data,"ON")==0;
     switch(message.sensor) {
