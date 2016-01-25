@@ -1,9 +1,9 @@
-MySensors 2.0 and HomeAssistant 10.2 MQTT communication
+MySensors 2.0 and HomeAssistant 11.1 MQTT communication
 
 This is the update for the automation home system with MySensors and HomeAssistant using MQTT protocol.
 News:
- - updated versions of MySensors 2.0 and HomeAssistant 10.2;
- - for MQTT external broker is needed, for example mosquitto (on the previous version the MQTT broker was included into the gateway);
+ - updated versions of MySensors 2.0 and HomeAssistant 11.1;
+ - for MQTT 3.1.1 external broker is needed, for example mosquitto (on the previous version the MQTT broker was included into the gateway);
  - the gateway allow sensors.
  
 My project include multisensor-nodes and also multisensor-Gateway with several examples sketches, each of them tested and working.
@@ -45,11 +45,11 @@ Then choose the sensor type according to your needs, find the relevant sketch in
   - node ID from #define NODE_ID; they must be unique for each node, the value could be between 1 and 254;
   - sensor PIN from #define sensor_PIN; check the available free PINs for your Arduino board;
   - update interval for the sensor: tUpdate in ms; it is usefull also to check if the node is alive by checking the last time update on the controller;
-  - if not connect to the MQTT, try to change the MQTT version into the file ~/Arduino/libraries/MySensors/drivers/pubsubclient/src/PubSubClient.h as following: 
-  // MQTT_VERSION : Pick the version
-#define MQTT_VERSION MQTT_VERSION_3_1
-//#define MQTT_VERSION MQTT_VERSION_3_1_1
-Several Linux distribution are not using by default the last version of mosquitto, so you have to modify the PubSubClient.h!
+  - if not connect to the MQTT, try to upgrade the mosquitto to the latest version from http://mosquitto.org/ 
+Several Linux distribution are not using by default the last version of mosquitto but a older version that support only MQTT 3.1 and not 3.1.1:
+sudo apt-add-repository ppa:mosquitto-dev/mosquitto-ppa
+sudo apt-get update
+Then install the latest version of mosquitto from Software Manager (take care, there may be also the old version available).
 
 Special remark for my gas/smoke detection: my programm take the lowest measured value of the sensor and keep it as zero  refference. It send to the controller the difference between the actual reading from the sensor pin and this refference. You have to decide yourself the treshhold for alarm activation (e.g 20 units).
 
@@ -73,19 +73,20 @@ When you will add other sensors or switches, just copy the code from one of the 
 Learned from experience
 
 While working and performed tests on this project, I encountered several issues I would like to mention here to pay attention on them:
-  - the payload for binary sensors must be letters or start with letters, not just numbers, for example ON / OFF, not 0 / 1 otherwise they don't work!
+  - the payload for binary sensors must be letters or start with letters, not just numbers, for example ON / OFF, not 0 / 1 otherwise they don't work! (may be this was solved in the latest version, didn't check yet);
   - when starting HomeAssistant, it set all relays to OFF; I think it is possible to change that, I am looking for a solution;
-  - the NRF24L+ does not offer large area radio coverage, but enough for one appartment; they are some radio improvement advices on the net; I used a monopol antenna, practically it is a 31mm wire.
+  - the NRF24L+ does not offer large area radio coverage, but enough for one appartment; they are some radio improvement advices on the net; I used a monopol antenna, practically it is a 31mm wire that replace the on-board antenna.
   
 
 What I have used
 
 They are differences between platforms and software versions, so I mention here my setup that works for me:
   - sensor network: MySensors 2.0;
-  - Controller: HomeAssistant v.10 installed on LinuxMint 17.3, python 3.4 (default on LinuxMint), pip3;
+  - Controller: HomeAssistant v.11.1 installed on LinuxMint 17.3, python 3.4 (default on LinuxMint), pip3;
+  - mosquitto upgraded to 1.4.7 for MQTT 3.1.1;
   - Gateway: Arduino Uno, Ethernet Shield W5100 and NRF24L+ (tested also with Arduino Mega 2560), sensors;
   - nodes: Arduino Nano, NRF24L+ and sensors;
-  - Arduino IDE 1.6.5
+  - Arduino IDE 1.6.5;
   - tested sensors: switches, digital input, analog input, relays, IR receiver, PIR, MQ-2, MQ-5, DHT11, DHT22, DS18B20, water leak (digital), sound (digital), vibration (digital), Light KY018 (analog), distance HC-SR04.
 
   
