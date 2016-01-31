@@ -29,8 +29,8 @@
 #if !defined(MY_W5100_SPI_EN)
   #define MY_SOFTSPI
   #define MY_SOFT_SPI_SCK_PIN 14 // A0, Green
-  #define MY_SOFT_SPI_MISO_PIN 16  // A1, Violet
-  #define MY_SOFT_SPI_MOSI_PIN 15  // A2, Blue
+  #define MY_SOFT_SPI_MISO_PIN 16  // A2, Violet
+  #define MY_SOFT_SPI_MOSI_PIN 15  // A1, Blue
 #endif  
 
 // When W5100 is connected we have to move CE/CSN pins for NRF radio
