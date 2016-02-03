@@ -166,7 +166,7 @@ void ServerUpdate() {
   send(msgTemp.set(Temp, 1));
   send(msgHum.set(Hum, 1));
   send(msgREL1.set(StateREL1 ? "ON":"OFF"));
-  send(msgREL2.set(StateREL1 ? "ON":"OFF"));
+  send(msgREL2.set(StateREL2 ? "ON":"OFF"));
   t0=millis();
 }
 
