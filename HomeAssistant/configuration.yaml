@@ -58,16 +58,16 @@ sensor 3:
 
 switch 1:
   platform: mqtt
-  state_topic: "P/0/5/1/0/2"
-  command_topic: "S/0/5/1/0/2"
+  state_topic: "P/0/101/1/0/2"
+  command_topic: "S/0/101/1/0/2"
   name: "REL1"
   payload_on: "ON"
   payload_off: "OFF"
 
 switch 2:
   platform: mqtt
-  state_topic: "P/0/6/1/0/2"
-  command_topic: "S/0/6/1/0/2"
+  state_topic: "P/0/102/1/0/2"
+  command_topic: "S/0/102/1/0/2"
   name: "REL2"
   payload_on: "ON"
   payload_off: "OFF"
