@@ -86,8 +86,8 @@
 #define CHILD_ID_PIR 2
 #define CHILD_ID_GAS 3
 #define CHILD_ID_T1 4
-#define CHILD_ID_REL1 5
-#define CHILD_ID_REL2 6
+#define CHILD_ID_REL1 101
+#define CHILD_ID_REL2 102
 #define CHILD_ID_HUM 7
 #define CHILD_ID_TEMP 8
 
@@ -192,7 +192,7 @@ void receive(const MyMessage &message) {
   if (message.type==V_LIGHT) {
     StateREL=strcmp(message.data,"ON")==0;
     switch(message.sensor) {
-      case 5: {
+      case 101: {
         StateREL1=StateREL;
         if (StateREL) {
           digitalWrite(REL1_PIN, HIGH);
@@ -203,7 +203,7 @@ void receive(const MyMessage &message) {
         send(msgREL1.set(StateREL1 ? "ON":"OFF"));
       }
       break;
-      case 6: {
+      case 102: {
         StateREL2=StateREL;
         if (StateREL) {
           digitalWrite(REL2_PIN, HIGH);
